@@ -8,6 +8,6 @@ h1{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.myCanvas{
+#myCanvas{
     background-color: green;
 }
