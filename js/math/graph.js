@@ -36,6 +36,33 @@ class Graph{
         return false; 
     }
 
+    removeSegment(seg){
+        this.segment.splice(this.segment.indexOf(seg),1);
+    }
+
+    removePoint(point){
+        const segs = this.getSegmentsWithPoint(point);
+        for(const seg of segs){
+            this.removeSegment(seg);
+        }
+        this.points.splice(this.points.indexOf(point),1);
+    }
+
+    getSegmentsWithPoint(point){
+        const segs = [];
+        for(const seg of this.segment){
+            if(seg.includes(point)){
+                segs.push(seg);
+            }
+        }
+        return segs;
+    }
+
+    dispose(){
+        this.points.length=0;
+        this.segment.length=0;
+    }
+
     draw(ctx){
         for(const seg of this.segment){
             seg.draw(ctx);
