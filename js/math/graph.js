@@ -25,11 +25,14 @@ class Graph{
     }
 
     containsSegment(seg){
-        return this.segment.find((s)=>s.equals(seg));
+        let success = this.segment.find((s)=>{
+            s.equals(seg)
+        });
+        return success;
     }
 
     tryAddSegment(seg){
-        if(!this.containsSegment(seg)){
+        if(!this.containsSegment(seg) && !seg.p1.equals(seg.p2)){
             this.addSegment(seg);
             return true; 
         }
